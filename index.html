@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #00203FFF;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            letter-spacing: 0.1em;
+            font-size: 1.2em;
+        }
+        button{
+            height: 3.8em;
+            width: 15em;
+            margin-left: 5em;
+            margin-top: 1em;
+            border-radius: 0.4em;   
+            background-color: rgb(51, 46, 46);
+            color: white;
+        }
+        input{
+            height: 3em;
+            width: 25em;
+            border-radius: 0.5em;
+            border: 2px solid;
+            
+        }
+        #div1{
+            border: 0.2em solid white;
+            width: 22em;
+            padding: 1.5em;
+            padding-bottom: 2em;
+            padding-left: 7em;
+            margin-left: 20%;
+            margin-top: 1em;
+            border-radius: 2em;
+            background-color:#ADEFD1FF;
+            box-shadow: 0.2em 0.1em 2em;
+        }
+        #div{
+            width: 37em;
+            padding: 1.5em;
+            margin-left: 12%;
+            margin-top: 2em;
+            padding-left: 3em;
+        }
+    </style>
+    <script>
+        var sub=0
+        function calculateFun()
+        {
+            var product=0;
+            var sum=0
+            for(var i=0;i<sub;i++){
+                var s1=document.getElementById("s"+(i+1));
+                var c1=document.getElementById("c"+(i+1))
+                product=product+(Number(s1.value)*Number(c1.value))
+                sum=sum+(Number(c1.value))
+            }
+            var txt=document.getElementById("res")
+            txt.innerHTML=(product/sum)
+            txt.style.color="lightgreen"
+            txt.style.textAlign="center"
+    
+        }
+        function fun()
+        {
+            sub=document.getElementById("txt").value
+            var tb='<h1 id="res"></h1>'
+            tb=tb+'<table>'
+            for(var i=0;i<sub;i++){
+                tb=tb+'<tr>'
+                
+                tb=tb+'<td>'
+                tb=tb+'<input id="s'+(i+1)+'" type="text" placeholder="Enter subject '+(i+1)+' grade "/>'
+                tb=tb+'</td>'
+                tb=tb+'<td>'
+                tb=tb+'<input id="c'+(i+1)+'" type="text" placeholder="Enter subject '+(i+1)+' credits"/>'
+                tb=tb+'</td>'
+                tb=tb+'</tr>'
+            }
+            tb=tb+'</table>'
+            tb=tb+'<button onclick="calculateFun()" style="margin-left:16em;background-color:orange" >CALCULATE</button>'
+            var dv=document.getElementById("div")
+            dv.innerHTML=tb
+            dv.style.border="0.2em solid white"
+            dv.style.borderRadius="2em"
+            dv.style.boxShadow="0.2em 0.1em 2em"
+        }
+    </script>
+</head>
+<body>
+    <div id="div1">
+        <h3>ENTER NUMBER OF SUBJECTS</h3>
+        <input id="txt" type="text"/><br/>
+        <button onclick="fun()">SUBMIT</button><br>
+    </div>
+    <div id="div">
+    </div>
+</body>
+</html>
